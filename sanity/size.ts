@@ -4,7 +4,7 @@ export const size = {
   name: "size",
   title: "Size",
   type: "document",
-  icon: CgSize,
+  // icon: CgSize,
   fields: [
     {
       name: "title",

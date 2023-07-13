@@ -5,10 +5,12 @@ import { useState } from "react";
 import { FaAngleDown, FaRegHeart, FaShoppingCart } from "react-icons/fa";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
-
-import Dropdown from "../Shares/Dropdown";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta/client";
+import { usePathname } from "next/navigation";
 
 const variants = {
   true: { opacity: 1, x: 0 },
@@ -17,6 +19,8 @@ const variants = {
 
 function Header() {
   const [navbar, setNavbar] = useState(false);
+  const pathname = usePathname();
+  console.log("pathname");
   const counterValue = useSelector(
     (state: RootState) => state.counterSlice.totalQuantity
   );
@@ -70,18 +74,33 @@ function Header() {
               </ul>
             </div>
           </div>
-          <div className="flex  justify-end space-x-2 text-xs  ">
-            <Link href={"/cart"}>
-              <div
-                className={` bg-white  flex relative     py-2 px-4 cursorPointer `}
-              >
-                <FaShoppingCart size={30} height={30} />
-                <span className="text-white bg-red-900 rounded-lg px-2 absolute ml-6">
-                  {counterValue}
-                </span>
-              </div>
-            </Link>
-            <div></div> {/* HAMBURGER BUTTON FOR MOBILE */}
+          <div className="flex  justify-end   items-center space-x-2 text-xs  ">
+            <div></div>
+            <div>
+              <Link href={"/cart"}>
+                <div
+                  className={` bg-white  flex relative     py-2 px-4 cursorPointer `}
+                >
+                  <FaShoppingCart size={30} height={30} />
+                  <span className="text-white bg-red-900 rounded-lg px-2 absolute ml-6">
+                    {counterValue}
+                  </span>
+                </div>
+              </Link>
+            </div>
+            <div>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                <SignInButton mode="modal" afterSignInUrl={`/${pathname}`}>
+                  <button className="rounded border border-gray-400 px-3 py-0.5">
+                    Sign in
+                  </button>
+                </SignInButton>
+              </SignedOut>
+            </div>{" "}
+            {/* HAMBURGER BUTTON FOR MOBILE */}
             <div className="lg:hidden">
               <div
                 className="p-2 text-gray-700 rounded-lg outline-none focus:border-gray-400 focus:border"

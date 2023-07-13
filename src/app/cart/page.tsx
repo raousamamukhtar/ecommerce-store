@@ -2,29 +2,16 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import Wrapper from "@/components/Wrapper";
-// import CartItem from "@/components/CartItem";
 import { useSelector } from "react-redux";
 import { Image as IImage } from "sanity";
-
-// import { makePaymentRequest } from "@/utils/api";
-import { loadStripe } from "@stripe/stripe-js";
 import Wrapper from "../Components/Shares/Wrapper";
-import { client } from "../../../sanity/lib/client";
-import { FaSpinner } from "react-icons/fa";
-
 import { RootState } from "@/store/store";
-import Cartitems from "../Components/Shares/Cartitems";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { urlForImage } from "../../../sanity/lib/image";
 import Counter from "../Components/Shares/Counter";
-import Checkout from "../Components/Shares/Checkout";
 import StripeCheckOutButton from "../Components/Shares/Checkout";
-// /import { initialState, reducer } from "../product/[id]/page";
 
 const Cart = () => {
-  // const [state, dispatch] = useReducer(reducer, initialState);
-  // console.log("state", state);
   const cartproduct = useSelector(
     (state: RootState) => state.counterSlice.items
   );
@@ -130,9 +117,7 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <button className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center">
-                  Checkout
-                </button>
+
                 <StripeCheckOutButton product={cartproduct} />
               </div>
             </div>

@@ -2,7 +2,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import ProductCard from "./ProductList";
+import ProductCard from "./ProductCardlistt";
 
 const RelatedProducts = () => {
   const responsive = {
@@ -31,6 +31,7 @@ const RelatedProducts = () => {
         containerClass="-mx-[10px]"
         itemClass="px-[10px]"
       >
+        {/* @ts-ignore */}
         <ProductCard />
       </Carousel>
     </div>

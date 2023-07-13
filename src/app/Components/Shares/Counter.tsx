@@ -4,7 +4,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 
-import { RootState } from "@/store/store";
 export default function Counter(props: { product: any }) {
   const dispatch = useDispatch();
 

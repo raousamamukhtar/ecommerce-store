@@ -1,10 +1,7 @@
-import { TbShoe } from "react-icons/Tb";
-
 export const product = {
   name: "product",
   title: "Product",
   type: "document",
-  icon: TbShoe,
   fields: [
     {
       name: "title",

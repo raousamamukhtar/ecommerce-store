@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 const CheckoutSuccess = () => {
   return (
     <div>
       {/* <!-- component --> */}
-      <div className="bg-gray-100 h-screen">
+      <div className="bg-gray-100 h-screen mt-20">
         <div className="bg-white p-6  md:mx-auto">
           <svg
             viewBox="0 0 24 24"
@@ -22,12 +24,12 @@ const CheckoutSuccess = () => {
             </p>
             <p> Have a great day! </p>
             <div className="py-10 text-center">
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3"
               >
                 GO BACK
-              </a>
+              </Link>
             </div>
           </div>
         </div>
