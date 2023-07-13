@@ -19,7 +19,7 @@ export default function ProductDetailsCarousel({ images }: any) {
         >
           {images.map((img: any, index: any) => (
             <div key={index}>
-              <Image
+              <img
                 alt="Image"
                 src={urlForImage(img).width(400).height(300).url()}
                 width={100}
