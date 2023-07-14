@@ -27,18 +27,20 @@ function Header() {
   return (
     <nav className="w-full bg-white text-black fixed top-0 left-0 right-0 z-10">
       <div className="flex  space-x-8 px-4 lg:mx-20 my-8 lg:max-w-7lg lg:items-center lg:flex lg:px-8">
-        <div className="flex items-center justify-start   lg:block">
-          {/* LOGO */}
-          <a className=" flex">
-            <Image
-              src="/logo.svg"
-              alt={"logo"}
-              height={60}
-              width={60}
-              className=""
-            />
-          </a>
-        </div>
+        {!navbar && (
+          <div className="flex items-center justify-start   lg:block">
+            {/* LOGO */}
+            <a className=" flex">
+              <Image
+                src="/logo.svg"
+                alt={"logo"}
+                height={60}
+                width={60}
+                className=""
+              />
+            </a>
+          </div>
+        )}
         <div
           className={`flex-1 lg:justify-self-center justify-center  lg:block  
               ${
@@ -46,7 +48,7 @@ function Header() {
                   ? "p-12 lg:p-0 block  animate-fade-in-right origin-right"
                   : "hidden"
               }`}
-          onClick={() => setNavbar(!navbar)}
+          // onClick={() => setNavbar(!navbar)}
         >
           <ul className="h-screen lg:h-auto items-center justify-center text-black lg:flex ">
             <li className=" text-lg font-lg  py-2  lg:px-6 text-center border-b-2 lg:border-b-0    lg:hover:bg-transparent">
