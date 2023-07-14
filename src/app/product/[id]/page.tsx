@@ -31,7 +31,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <div className="w-full md:py-20 mt-16">
+      <div className="w-full md:py-20 lg:mt-16 mt-24">
         {/* {loader.pageLoading ? (
           <div className="flex justify-center animate-spin md:mt-8">
             <FaSpinner size={100} />
@@ -55,36 +55,36 @@ export default function Page({ params }: { params: { id: string } }) {
                   {/* right column start */}
                   <div className="flex-[1] py-3 ">
                     {/* PRODUCT TITLE */}
-                    <div className="text-[34px] font-semibold mb-2 leading-tight">
+                    <div className="lg:text-[34px] text-[24px] font-semibold mb-2 leading-tight">
                       {product.title}
                     </div>
                     {/* PRODUCT SUBTITLE */}
                     <div className="text-lg font-semibold mb-5"></div>
                     {/* PRODUCT PRICE */}
                     <div className="flex items-center">
-                      <p className="mr-2 text-lg font-semibold">
+                      <p className="mr-2 lg:text-lg text-sm font-semibold">
                         MRP : &#8377;{product.Dprice}
                       </p>
 
                       <>
-                        <p className="text-base  font-medium line-through">
+                        <p className=" lg:text-lg text-sm  font-medium line-through">
                           &#8377;{product.Fprice}
                         </p>
-                        <p className="ml-auto text-base font-medium text-green-500">
-                          (
+                        <p className="ml-auto lg:text-lg text-sm font-medium text-red-500">
+                          ( -
                           {(
                             (parseInt(product.Dprice) /
                               parseInt(product.Fprice)) *
                             100
-                          ).toFixed(2)}
-                          )% off
+                          ).toFixed(0)}
+                          )
                         </p>
                       </>
                     </div>
                     <div className="text-md font-medium text-black/[0.5]">
                       incl. of taxes
                     </div>
-                    <div className="text-md font-medium text-black/[0.5] mb-20">
+                    <div className="text-md font-medium text-black/[0.5] lg:mb-20 mb-4">
                       {`(Also includes all applicable duties)`}
                     </div>
                     {/* PRODUCT SIZE RANGE START */}
