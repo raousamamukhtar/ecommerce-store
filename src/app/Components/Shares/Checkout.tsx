@@ -11,7 +11,6 @@ const StripeCheckOutButton = (product: any) => {
       cache: "no-cache",
       body: JSON.stringify(product.product),
     });
-
     const data = await response.json();
     if (data.session) {
       stripe?.redirectToCheckout({ sessionId: data.session.id });

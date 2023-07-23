@@ -15,7 +15,6 @@ export default function Counter(props: { product: any }) {
         price: props.product.Dprice,
       })
     );
-    toast.success(` ${props.product.title} shoe added to cart`);
   };
   const decrease = () => {
     dispatch(
@@ -25,7 +24,6 @@ export default function Counter(props: { product: any }) {
         price: props.product.Dprice,
       })
     );
-    toast.success(` ${props.product.title} shoe removed from cart`);
   };
   return (
     <>

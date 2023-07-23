@@ -78,7 +78,6 @@ function Header() {
             <>
               <div
                 className={` flex  justify-end   items-center space-x-2 text-xs  `}
-                onClick={() => setNavbar(!navbar)}
               >
                 <div>
                   <Link href={"/cart"}>

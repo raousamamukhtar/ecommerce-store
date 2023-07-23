@@ -1,4 +1,5 @@
 import { Stripe, loadStripe } from "@stripe/stripe-js";
+import { toast } from "react-hot-toast";
 
 let stripePromise: Promise<Stripe | null>;
 

@@ -65,13 +65,13 @@ export const counterSlice = createSlice({
       //   console.log("existingItem", existingItem);
       state.totalQuantity = state.totalQuantity - action.payload.quantity;
       state.totalAmount =
-        state.totalAmount -
-        action.payload.quantity * action.payload.product.price;
+        state.totalAmount - action.payload.quantity * existingItem.Dprice;
+      console.log(existingItem.Dprice);
       if (!existingItem) {
         // console.log("state.items.quantity", state.items);
         // console.log("action.payload.quantity", action.payload.quantity);
         const totalPrice = newItem.Dprice * action.payload.quantity;
-        console.log("existingItem", existingItem);
+        // console.log("existingItem", existingItem);
         state.items.push({
           ...newItem,
           quantity: action.payload.quantity,
@@ -81,6 +81,8 @@ export const counterSlice = createSlice({
         const totalPrice =
           existingItem.totalPrice -
           existingItem.Dprice * action.payload.quantity;
+
+        // console.log(totalPrice);
         existingItem.quantity -= action.payload.quantity;
         existingItem.totalPrice = totalPrice;
         //   console.log(action);
